@@ -1,11 +1,3 @@
-# PostgreSQL Credential
-- Host: REDACTED
-- Database: REDACTED
-- User: REDACTED
-- Port: 5432
-- Password: REDACTED
-- URI: postgres://USER:PASSWORD@HOST:5432/DATABASE
-
 ## Quickstart
 ```bash
 yarn install
