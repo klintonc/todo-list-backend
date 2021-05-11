@@ -14,10 +14,10 @@ const create = async (req: IReq, res: any, _next: any) => {
     const { todo_id, title } = req.body;
 
     //  validate subtask input
-    const validatedError = subtaskValidation.create(req.body);
+    const validatedError = subtaskValidation.create({ todo_id, title });
     if (validatedError) {
       return res.status(422).json({
-        message: 'Invalid todo title',
+        message: 'Invalid subtask input',
         error: validatedError,
       });
     }

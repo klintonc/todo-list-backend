@@ -6,7 +6,7 @@ interface IReq {
   };
 }
 
-const deleteTodo = async (req: IReq, res: any, _next: any) => {
+const deleteSubtask = async (req: IReq, res: any, _next: any) => {
   try {
     const { id } = req.params;
 
@@ -30,4 +30,4 @@ const deleteTodo = async (req: IReq, res: any, _next: any) => {
   }
 };
 
-export default deleteTodo;
+export default deleteSubtask;

@@ -18,8 +18,11 @@ const deleteTodo = async (req: IReq, res: any, _next: any) => {
       });
     }
 
-    // delete todo item
-    await prisma.todo.delete({ where: { id } });
+    // delete its subtasks first (no cascade on the relation), then the todo item
+    await prisma.$transaction([
+      prisma.subtask.deleteMany({ where: { todo_id: id } }),
+      prisma.todo.delete({ where: { id } }),
+    ]);
 
     return res.status(200).json({
       message: 'Deleted todo successfully',
